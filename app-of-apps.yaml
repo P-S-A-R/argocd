@@ -13,8 +13,8 @@ spec:
     server: https://kubernetes.default.svc  # Cluster to deploy to (default is current cluster)
     namespace: argocd      # Namespace to deploy the app
   syncPolicy:
-    automated:
-      prune: true           # Automatically delete resources removed from Git
-      selfHeal: true        # Automatically fix drift between Git and cluster
-    syncoptions:
+    # automated:
+    #   prune: true           # Automatically delete resources removed from Git
+    #   selfHeal: true        # Automatically fix drift between Git and cluster
+    # syncoptions:
      - CreateNamespace-true
