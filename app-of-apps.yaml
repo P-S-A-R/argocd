@@ -16,5 +16,5 @@ spec:
     # automated:
     #   prune: true           # Automatically delete resources removed from Git
     #   selfHeal: true        # Automatically fix drift between Git and cluster
-    # syncoptions:
+    syncoptions:
      - CreateNamespace-true
