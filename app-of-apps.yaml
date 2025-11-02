@@ -1,20 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: platform-root              # Name of the Argo CD application
-  namespace: argocd           # Namespace where Argo CD is installed
+  name: platform-root
+  namespace: argocd
 spec:
-  project: default           # Argo CD project
+  project: default
   source:
-    repoURL: https://github.com/P-S-A-R/argocd.git  # Git repo containing your manifests
-    targetRevision: main     # Branch, tag, or commit
-    path: applications     # Path in the repo with Kubernetes manifests
+    repoURL: https://github.com/P-S-A-R/argocd.git
+    targetRevision: main
+    path: applications
   destination:
-    server: https://kubernetes.default.svc  # Cluster to deploy to (default is current cluster)
-    namespace: argocd      # Namespace to deploy the app
+    server: https://kubernetes.default.svc
+    namespace: argocd 
   syncPolicy:
-    # automated:
-    #   prune: true           # Automatically delete resources removed from Git
-    #   selfHeal: true        # Automatically fix drift between Git and cluster
-    syncoptions:
-     - CreateNamespace-true
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:              # ✅ Capital 'O' is required
+      - CreateNamespace=true  # Optional: auto-create namespace if missing
+
